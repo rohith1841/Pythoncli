@@ -1,17 +1,19 @@
-# Binance Futures Testnet Trading Bot
+# Python_cli — Binance Futures Testnet Trading Bot
+
+A small CLI and optional web UI for placing Binance USDT-M Futures orders against the Testnet.
 
 ## Features
 - Market and Limit order support
 - USDT-M Futures Testnet
 - CLI input and validation
 - Logging to `bot.log`
-- Modular structure for advanced orders
+- Modular structure for advanced orders (Stop-Limit, OCO, TWAP)
 
 ## Setup
 1. Install dependencies:
    ```bash
    source .venv/bin/activate
-   pip install python-binance
+   pip install python-binance Flask
    ```
 2. Set up your Binance Testnet API keys.
 
@@ -37,25 +39,17 @@
 All actions, errors, and executions are logged to `bot.log` in the project root.
 
 ## Advanced Orders
-Add advanced order types in `/src/advanced/` for bonus points.
+Add or improve advanced order types in `/src/advanced/` for extra credit. OCO is simulated by placing two orders; monitor & cancel counterpart on fill to implement true OCO behavior.
 
-### Web UI (optional)
-You can use a simple local web interface to place orders and view `bot.log`.
-
-1) Ensure venv is active:
+## Web UI (optional)
+1. Ensure venv is active:
    ```bash
    source .venv/bin/activate
    ```
-2) Install Flask:
-   ```bash
-   pip install Flask
-   ```
-3) Start the server:
+2. Start the server:
    ```bash
    python src/web/app.py
    ```
-4) Open `http://127.0.0.1:5000/` in your browser.
+3. Open `http://127.0.0.1:5000/` in your browser.
 
 The web form supports MARKET, LIMIT, STOP-LIMIT, OCO, and TWAP. Responses are shown as JSON and the latest 50 lines of `bot.log` are displayed.
-
-

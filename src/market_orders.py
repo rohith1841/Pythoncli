@@ -2,14 +2,11 @@
 Market Orders Logic for Binance Futures Testnet Bot
 """
 import logging
+from .logging_config import setup_logging
 from binance import Client
 from binance.exceptions import BinanceAPIException, BinanceOrderException
 
-logging.basicConfig(
-    filename="../../bot.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+setup_logging()
 
 class BasicBot:
     def __init__(self, api_key: str, api_secret: str, testnet: bool = True):
