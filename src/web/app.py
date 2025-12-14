@@ -12,6 +12,9 @@ ADV_DIR = os.path.abspath(os.path.join(SRC_DIR, "advanced"))
 sys.path.insert(0, SRC_DIR)
 sys.path.insert(0, ADV_DIR)
 
+from logging_config import setup_logging
+setup_logging()
+
 from market_orders import BasicBot as MarketBot  # type: ignore
 from limit_orders import BasicBot as LimitBot  # type: ignore
 try:
@@ -74,7 +77,8 @@ def place_order():
             stop_price = float(data.get("stop_price", "0"))
             limit_price = float(data.get("limit_price", "0"))
             bot = AdvancedBot(api_key, api_secret, testnet=True)
-            resp = bot.place_stop_limit_order(symbol, side, quantity, stop_price, limit_price)
+            # place_stop_limit_order(symbol, side, quantity, price, stop_price)
+            resp = bot.place_stop_limit_order(symbol, side, quantity, limit_price, stop_price)
             return jsonify({"ok": True, "response": _safe_json(resp or {})})
 
         elif order_type == "OCO":
@@ -95,7 +99,8 @@ def place_order():
             splits = int(data.get("splits", "1"))
             interval_sec = int(data.get("interval_sec", "1"))
             bot = TWAPBot(api_key, api_secret, testnet=True)
-            resp = bot.place_twap_orders(symbol, side, total_qty, splits, interval_sec)
+            # place_twap_order(symbol, side, total_quantity, interval, splits)
+            resp = bot.place_twap_order(symbol, side, total_qty, interval_sec, splits)
             return jsonify({"ok": True, "response": _safe_json({"orders": resp or []})})
 
         else:

@@ -2,15 +2,12 @@
 TWAP Strategy Logic (Bonus)
 """
 import logging
+from ..logging_config import setup_logging
 import time
 from binance import Client
 from binance.exceptions import BinanceAPIException, BinanceOrderException
 
-logging.basicConfig(
-    filename="../../../bot.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+setup_logging()
 
 class TWAPBot:
     def __init__(self, api_key: str, api_secret: str, testnet: bool = True):

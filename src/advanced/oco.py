@@ -2,14 +2,11 @@
 OCO and Stop-Limit Order Logic (Bonus)
 """
 import logging
+from ..logging_config import setup_logging
 from binance import Client
 from binance.exceptions import BinanceAPIException, BinanceOrderException
 
-logging.basicConfig(
-    filename="../../../bot.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+setup_logging()
 
 class AdvancedBot:
     def __init__(self, api_key: str, api_secret: str, testnet: bool = True):
