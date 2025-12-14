@@ -1,0 +1,24 @@
+To: saami@bajarangs.com, nagasai@bajarangs.com, chetan@bajarangs.com
+Cc: sonika@primetrade.ai
+Subject: Junior Python Developer – Crypto Trading Bot
+
+Hello,
+
+Please find attached my completed assignment for the Junior Python Developer – Crypto Trading Bot role. The repository and submission ZIP are included below.
+
+Repository: https://github.com/rohith1841/Pythoncli
+Submission ZIP: rohith_binance_bot.zip (included in project root)
+
+Included files:
+- src/ (source code for market, limit, advanced order logic)
+- bot.log (sample logs)
+- report.pdf (short report)
+- README.md (setup and usage)
+
+Notes:
+- The bot is designed to use the Binance Futures Testnet (https://testnet.binancefuture.com). Use your Testnet API keys to run the CLI or web UI.
+- Advanced orders implemented: Stop-Limit, OCO (simulated), TWAP.
+- Improvements that can be made: order precision/lot size handling, OCO monitoring worker, unit tests.
+
+Best regards,
+Rohith
